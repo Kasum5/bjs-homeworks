@@ -43,6 +43,6 @@ function askDrink(name,dateOfBirthday){
     } else if ((date - age) < 18) {
          return(`Сожалею, ${name}, но я не могу вам продать алкоголь. Могу предложить вам замечательный клюквенный компот!`);
     };
-        return result;
+  
     // return result;
 }
