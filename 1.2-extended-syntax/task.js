@@ -3,9 +3,7 @@ function getResult(a,b,c){
     let x = [];
     let D = b**2 - 4*a*c; // формула дискримента
 
-
-    if (D < 0) {
-    } else if (D == 0) {
+    if (D == 0) {
        x.push((-b + Math.sqrt(D)) / (2 *a));
     } else if (D > 0) {
         x.push((-b + Math.sqrt(D)) / (2 *a));
@@ -16,10 +14,11 @@ function getResult(a,b,c){
 
 function getAverageMark(marks){
     // код для задачи №2 писать здесь
-    if (marks.length == 0) {
+    if (marks.length == []) {
         return(0);
      };
-       
+     
+     marks = marks.slice(0,5)
      let ratings = 0;
     for(let i = 0; i < marks.length; i++){
        ratings += marks[i];
@@ -27,8 +26,8 @@ function getAverageMark(marks){
       if (marks.length <= 5) {   
           return (ratings / marks.length);     
      } else if (marks.length > 5) {
-            return marks.slice(0,5);
-        };
+            return (ratings / marks.length);
+      };
 
     //return averageMark;
 }
@@ -38,7 +37,7 @@ function askDrink(name,dateOfBirthday){
     let age = dateOfBirthday.getFullYear();
     let date = new Date().getFullYear();
 
-    if ((date - age) > 18) {
+    if ((date - age) >= 18) {
       return(`Не желаете ли олд-фэшн, ${name}?`);
     } else if ((date - age) < 18) {
          return(`Сожалею, ${name}, но я не могу вам продать алкоголь. Могу предложить вам замечательный клюквенный компот!`);
