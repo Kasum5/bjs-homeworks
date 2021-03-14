@@ -38,7 +38,8 @@ function getAverageScore(data){
   for(let subject in data){
     a[subject] = getAverageMark(data[subject]);
 };
-console.log(a);
+  a.average = a;
+return a;
 }
  getAverageScore(data)
 
@@ -56,6 +57,7 @@ function getAverageMark(marks){
     averageMark = sum / marks.length;
     return Math.round(averageMark);
   } 
+  getAverageMark(marks)
 
 
 function getPersonData(secretData){
