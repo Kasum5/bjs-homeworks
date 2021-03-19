@@ -110,11 +110,12 @@ class StudentLog {
     this.grade = grade;
     this.subject = subject;
     if(this.grade >= 1 && this.grade <= 5){
-        return this.grade + " , " + this.subject;
+        this.jornal.push(this.grade);
+         return this.jornal;
     }else {
       return 'Вы пытались поставить оценку ' + this.grade  + ' по предмету ' +  this.subject + '. Допускаются только числа от 1 до 5.'
     };
-  };
+  }; 
   getAverageBySubject(subject){
     this.subject = subject; 
       let averageRating;
