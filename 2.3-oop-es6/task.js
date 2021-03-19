@@ -117,24 +117,29 @@ class StudentLog {
   };
   getAverageBySubject(subject){
     this.subject = subject; 
-      if(this.subject === ""){
-         return 0
-      } else {
-         this.jornal.push(this.grade);
-         return this.jornal;
-      };
+      let averageRating;
+      let sum = 0;
+    if (this.subject === "algebra" || this.subject === "geometry"){
+        for(let i = 0; i < this.jornal.length; i++){
+          sum += this.jornal[i];
+          averageRating = sum / this.jornal.length
+        };
+        return averageRating;
+    } else {
+      return 0
+    };
   };
   getTotalAverage(){
     if (this.jornal.length === 0){
       return 0
     } else {
-      let sum = 0;
+      let sumAverage = 0;
       for(let i = 0; i < this.jornal.length; i++){
-        sum += this.jornal[i];
-        return sum / this.jornal.length
-      }
-    }
-  }
+        sumAverage += this.jornal[i];
+      };
+       return sumAverage / this.jornal.length
+    };
+  };
 }
 
 const log = new StudentLog('Олег Никифоров');
