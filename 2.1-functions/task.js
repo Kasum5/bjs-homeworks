@@ -33,13 +33,15 @@ showSolutionMessage(7,20,-3)
 
 function getAverageScore(data){
 
-  let a = {};
-
-  for(let subject in data){
-    a[subject] = getAverageMark(data[subject]);
-};
-  a.average = a;
-return a;
+  let allRatings = [];
+  
+  for (let key in data){
+     allRatings.push(data[key]);
+  };
+  
+  data.average = allRatings;
+  
+  return data
 }
  getAverageScore(data)
 
