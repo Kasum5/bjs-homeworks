@@ -68,21 +68,24 @@ class Library {
   constructor(name,books){
     this.name = "Библеотека имени Ленина";
     this.books = [];
+};
+addBook(book){
+  if(this.state > 30){
+    this.books.push(book);
+       return this.books;
+  } else {
+      return this.books;
   };
-  addBook(book){
-    this.book = book;
-        this.books.push(this.book);
-    return this.books
+}
+findBookBy(type,value){
+  for(let i = 0; i < this.books.length; i++){
+    if(this.books[i][type] === value) return this.books[i];
   }
-  findBookBy(type,value){
-    for(let i = 0; i < this.books.length; i++){
-      if(this.books[i][type] === value) return this.books[i];
-    }
     return null
-  }
+}
 giveBookByName(bookName){
   for(let i = 0; i < this.books.length; i++){
-    if(this.books[i].name === bookName) return this.books.splice([i],1);
+    if(this.books[i].name === bookName) return this.books.splice([i],1)[0];
   };
   return null;
 
@@ -107,20 +110,18 @@ class StudentLog {
     return this.name;
   };
   addGrade(grade,subject){
-    this.grade = grade;
-    this.subject = subject;
-    if(this.grade >= 1 && this.grade <= 5){
-        this.jornal.push(this.grade);
+
+    if(grade >= 1 && grade <= 5){
+        this.jornal.push(grade);
          return this.jornal;
     }else {
-      return 'Вы пытались поставить оценку ' + this.grade  + ' по предмету ' +  this.subject + '. Допускаются только числа от 1 до 5.'
+      return  (`Вы пытались поставить оценку ${grade}  по предмету  ${subject}. Допускаются только числа от 1 до 5.`);
     };
   }; 
-  getAverageBySubject(subject){
-    this.subject = subject; 
+  getAverageBySubject(subject){ 
       let averageRating;
       let sum = 0;
-    if (this.subject === "algebra" || this.subject === "geometry"){
+    if (subject === "algebra" || subject === "geometry"){
         for(let i = 0; i < this.jornal.length; i++){
           sum += this.jornal[i];
           averageRating = sum / this.jornal.length
