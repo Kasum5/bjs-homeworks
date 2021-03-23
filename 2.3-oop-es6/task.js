@@ -66,11 +66,11 @@ console.log(picnick.state);
 
 class Library {
   constructor(name,books){
-    this.name = "Библеотека имени Ленина";
+    this.name = name;
     this.books = [];
 };
 addBook(book){
-  if(this.state > 30){
+  if(book.state > 30){
     this.books.push(book);
        return this.books;
   } else {
