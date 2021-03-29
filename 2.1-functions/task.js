@@ -30,36 +30,33 @@ function showSolutionMessage(a,b,c){
 showSolutionMessage(7,20,-3) 
 
 
-
 function getAverageScore(data){
-
-  let allRatings = [];
-  
-  for (let key in data){
-     allRatings.push(data[key]);
+  let averageScore = {};
+  for(let subject in data){
+    averageScore[data] = getAverageMark(data[subject]);
   };
-  
-  data.average = allRatings;
-  
-  return data
+  let averageScoreArrey = [];
+  for (let subject in averageScore){
+    averageScoreArrey.push(averageScore[subject])
+  }
+  averageScore.average = getAverageMark(averageScoreArrey);
+  return averageScore;
 }
- getAverageScore(data)
-
 
 function getAverageMark(marks){
-    let averageMark;
-
+  let sumMarks = 0;
+  let averageMark = 0;
   if(marks.length === 0){
-    return 0
-  } else {
-    let sum = 0;
-    for(let i = 0; i < marks.length; i++){
-      sum += marks[i];
-    }
-    averageMark = sum / marks.length;
-    return Math.round(averageMark);
-  } 
-  getAverageMark(marks)
+    return 0;
+  }
+  for(let i = 0; i < marks.length; i++){
+    if(!marks[i]) continue;
+    sumMarks += marks[i];
+  }
+  averageMark = sumMarks / marks.length;
+  return averageMark;
+}
+
 
 
 function getPersonData(secretData){
